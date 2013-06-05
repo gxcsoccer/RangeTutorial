@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Range Tutorial -- Cut</title>
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			.box {
+				position: relative;
+				width: 400px;
+				height: 100px;
+				border: solid 1px black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">123456789</div>
+		<input id="btn" type="button" value="cut" />
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector('.box'),
+			button = document.querySelector('#btn'),
+			range = document.createRange();
+		range.setStart(box.firstChild, 0);
+		range.setEnd(box.firstChild, 3);
+
+		button.addEventListener('click', function() {
+			range.deleteContents();
+		}, false);
+	</script>
+</html>
